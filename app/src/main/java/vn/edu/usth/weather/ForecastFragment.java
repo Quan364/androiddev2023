@@ -1,0 +1,48 @@
+package vn.edu.usth.weather;
+
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link ForecastFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class ForecastFragment extends Fragment {
+
+    public ForecastFragment() {
+        // Required empty public constructor
+        super();
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
+
+        // Set background colors
+        view.setBackgroundColor(Color.parseColor("#20FF0000")); // Red
+        LinearLayout linearLayout = view.findViewById(R.id.linearlayout);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        TextView textView = new TextView(getContext());
+        textView.setText("Thursday");
+        ImageView imageView = new ImageView(getContext());
+        imageView.setImageResource(R.drawable.icon);
+        linearLayout.addView(textView);
+        linearLayout.addView(imageView);
+
+        return view;
+    }
+}
